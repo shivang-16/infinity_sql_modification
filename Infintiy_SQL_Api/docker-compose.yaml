@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  mongo_db:
+    container_name: mongo_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - infinity_db:/data/db
+
+  infinity.api:
+    build: .
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env      
+    depends_on:
+      - mongo_db
+
+volumes:
+  infinity_db: {}

@@ -1,0 +1,155 @@
+#login_page {
+  // border: 2px solid red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  // background-image: url(https://wallpapers.com/downloads/high/mind-easer-psychedelic-3awtpf8bc7ii97aa.webp);
+  position: relative;
+}
+#login_page::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  // background-image: url(https://e0.pxfuel.com/wallpapers/945/573/desktop-wallpaper-simple-topographic-two-variants-2880-x-1800.jpg);
+  background-image: url(https://res.cloudinary.com/ddszevvis/image/upload/v1698091106/general/desktop-wallpaper-simple-topographic-two-variants-2880-x-1800_nqa3wg.jpg);
+  // filter: invert(100%);
+  z-index: -1;
+  opacity: 0.7;
+  // background-size: cover;
+}
+.login_box {
+  // border: 2px solid red;
+  width: 100%;
+}
+
+.brandImage {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.form_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  border-radius: 10px;
+  border: 1px solid rgb(99, 99, 99);
+  padding: 30px 10px;
+  background-color: rgb(22, 22, 22);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    margin: 20px 0px 0px 0px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 30px;
+    input {
+      color: black;
+      margin: 7px 0px;
+      padding: 10px;
+      width: 300px;
+      border-radius: 10px;
+      background-color: rgb(234, 234, 234);
+    }
+
+    .form-btn {
+      background-color: rgb(49, 155, 255);
+      color: white;
+      margin-top: 20px;
+      width: 100%;
+      // padding: 10px;
+      height: 37px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      &:hover {
+        background-color: rgb(23, 123, 216);
+      }
+    }
+  }
+
+  span {
+    background-color: rgb(22, 22, 22);
+    margin-top: -22px;
+    padding: 10px;
+  }
+  p {
+    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.signup_link {
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+  span {
+    margin: 0 4px;
+    padding: 0;
+  }
+  a {
+    span {
+      color: rgb(49, 155, 255);
+    }
+  }
+}
+
+.check_box {
+  display: flex;
+  // border: 2px solid red;
+  width: 0;
+  position: relative;
+  right: 150px;
+  align-items: center;
+  input {
+    padding: 0;
+    width: 0;
+    // height: 35px;
+  }
+  label {
+    margin: 0px 10px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .brandImage {
+    display: none;
+  }
+  .form_area {
+    align-items: center;
+  }
+
+  .login_form {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .login_form {
+    // border: 2px solid red;
+    width: 70%;
+    padding: 20px 35px;
+    form {
+      margin: 15px 0px 0px 0px;
+      input {
+        width: 230px;
+        padding: 8px 10px;
+        margin: 5px 0px;
+      }
+    }
+  }
+  .check_box {
+    right: 120px;
+  }
+}

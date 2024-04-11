@@ -1,0 +1,52 @@
+.right-main {
+  // border: 2px solid red;
+  width: 80%;
+  padding: 0px 20px;
+}
+.rightSidebar-header {
+  // border: 2px solid red;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  margin: 30px 0px 10px 0px;
+  position: relative;
+}
+
+.btn {
+  position: absolute;
+  right: 0;
+  button {
+    background: none;
+    border: none;
+    color: rgb(9, 111, 255);
+    cursor: pointer;
+  }
+  .follow2 {
+    color: rgb(9, 111, 255);
+  }
+}
+.content-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 0px 0px 10px;
+  > p {
+    color: gray;
+    font-weight: bold;
+  }
+}
+.content-body {
+  // border: 2px solid red;
+  margin: 30px 0px;
+}
+.suggestions {
+  // border: 2px solid red;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 5px 0px;
+  cursor: pointer;
+  .userImg {
+    height: 40px;
+    width: 40px;
+  }
+}

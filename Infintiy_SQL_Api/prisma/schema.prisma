@@ -1,0 +1,70 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  userName  String   @unique
+  avatar    Avatar   @relation(fields: [avatarId], references: [id])
+  avatarId  Int
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+
+  posts      Post[]    @relation("userPosts")
+  likedPosts Like[]    @relation("likedPosts")
+  comments   Comment[] @relation("userComments")
+}
+
+model Avatar {
+  id       Int    @id @default(autoincrement())
+  publicId String
+  url      String
+  User     User[]
+}
+
+model Post {
+  id        Int       @id @default(autoincrement())
+  caption   String
+  image     Image     @relation(fields: [imageId], references: [id])
+  imageId   Int
+  owner     User      @relation("userPosts", fields: [ownerId], references: [id])
+  ownerId   Int
+  likes     Like[]    @relation("likedPosts")
+  comments  Comment[] @relation("postComments")
+  createdAt DateTime  @default(now())
+}
+
+model Image {
+  id       Int    @id @default(autoincrement())
+  publicId String
+  url      String
+  Post     Post[]
+}
+
+model Like {
+  id     Int  @id @default(autoincrement())
+  user   User @relation("likedPosts", fields: [userId], references: [id])
+  userId Int
+  post   Post @relation("likedPosts", fields: [postId], references: [id])
+  postId Int
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  text      String
+  user      User     @relation("userComments", fields: [userId], references: [id])
+  userId    Int
+  post      Post     @relation("postComments", fields: [postId], references: [id])
+  postId    Int
+  createdAt DateTime @default(now())
+}
